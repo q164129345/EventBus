@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/get_Started.dir/src/main.cpp.o -o get_Started  third_party/EventBUs/lib/libEventBus.a 
