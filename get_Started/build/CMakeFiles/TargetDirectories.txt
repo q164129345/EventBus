@@ -1,0 +1,14 @@
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/get_Started.dir
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/edit_cache.dir
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/rebuild_cache.dir
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/list_install_components.dir
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/install.dir
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/install/local.dir
+/home/wallace/Coding/EventsBus/get_Started/build/CMakeFiles/install/strip.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/EventBus.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/edit_cache.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/rebuild_cache.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/list_install_components.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/install.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/install/local.dir
+/home/wallace/Coding/EventsBus/get_Started/build/third_party/EventBUs/lib/CMakeFiles/install/strip.dir
