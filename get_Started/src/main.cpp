@@ -33,11 +33,10 @@ namespace Event
 class DataProcessor
 {
 public:
-    explicit DataProcessor(std::shared_ptr<dexode::EventBus> bus) : _listener(bus)
+    explicit DataProcessor(std::shared_ptr<dexode::EventBus> bus) : _listener(bus) // 源码要求使用初始化成员列表
     {
         // 3a. 订阅方式一：lambda（推荐，简洁）
-        _listener.listen([this](const Event::MotorTemperature &data)
-                         { onMotorTemperature(data); });
+        _listener.listen([this](const Event::MotorTemperature &data) { onMotorTemperature(data);});
 
         // 3b. 订阅方式二：std::bind 绑定成员函数
         _listener.listen<Event::RobotError>(std::bind(&DataProcessor::onError, this, std::placeholders::_1));
