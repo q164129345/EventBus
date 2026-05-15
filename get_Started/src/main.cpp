@@ -8,13 +8,16 @@
 // 1. 定义事件（普通 struct，字段随意）
 //    建议放在独立的 namespace 里，避免与其他类型名冲突
 // ============================================================
-namespace Event {
-    struct MotorTemperature {
+namespace Event
+{
+    struct MotorTemperature
+    {
         int sensorId;
         float temperature;
     };
 
-    struct RobotError {
+    struct RobotError
+    {
         std::string message;
         int errorCode;
     };
@@ -25,26 +28,28 @@ namespace Event {
 //    Listener 是 RAII 对象，析构时自动注销所有订阅，
 //    不需要手动 unlisten，避免野指针风险。
 // ============================================================
-class DataProcessor {
+class DataProcessor
+{
 public:
-    explicit DataProcessor(std::shared_ptr<dexode::EventBus> bus) : _listener(bus) {
+    explicit DataProcessor(std::shared_ptr<dexode::EventBus> bus) : _listener(bus)
+    {
         // 3a. 订阅方式一：lambda（推荐，简洁）
-        _listener.listen([this](const Event::MotorTemperature& data) {
-            onMotorTemperature(data);
-        });
+        _listener.listen([this](const Event::MotorTemperature &data)
+                         { onMotorTemperature(data); });
 
         // 3b. 订阅方式二：std::bind 绑定成员函数
-        _listener.listen<Event::RobotError>(
-            std::bind(&DataProcessor::onError, this, std::placeholders::_1));
+        _listener.listen<Event::RobotError>(std::bind(&DataProcessor::onError, this, std::placeholders::_1));
     }
 
 private:
-    void onMotorTemperature(const Event::MotorTemperature& data) {
+    void onMotorTemperature(const Event::MotorTemperature &data)
+    {
         std::cout << "[DataProcessor] 收到温度事件: ID=" << data.sensorId
                   << ", Temp=" << data.temperature << "C" << std::endl;
     }
 
-    void onError(const Event::RobotError& error) {
+    void onError(const Event::RobotError &error)
+    {
         std::cout << "[DataProcessor] 收到错误事件: " << error.message
                   << " (Code: " << error.errorCode << ")" << std::endl;
     }
@@ -52,7 +57,8 @@ private:
     dexode::EventBus::Listener _listener; // RAII对象，析构时会自动注销，很安全
 };
 
-int main() {
+int main()
+{
     // bus 通常存放在 singleton 或主控制器里，用 shared_ptr 管理生命周期
     auto bus = std::make_shared<dexode::EventBus>();
 
