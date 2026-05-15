@@ -10,12 +10,14 @@
 // ============================================================
 namespace Event
 {
+    // 事件类型一：电机温度事件
     struct MotorTemperature
     {
         int sensorId;
         float temperature;
     };
 
+    // 事件类型二：机器人错误事件
     struct RobotError
     {
         std::string message;
@@ -59,9 +61,10 @@ private:
 
 int main()
 {
-    // bus 通常存放在 singleton 或主控制器里，用 shared_ptr 管理生命周期
+    // 在堆上创建一个EventBus实例，并用shared_ptr管理它的生命周期
     auto bus = std::make_shared<dexode::EventBus>();
 
+    // 将EventBus实例的指针传递给DataProcessor，DataProcessor会在构造函数里订阅事件
     DataProcessor processor(bus);
 
     // 4. 投递事件（仅入队，回调尚未触发）
